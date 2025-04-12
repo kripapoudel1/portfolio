@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { ModeToggle } from "./mode-toggle"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { ModeToggle } from "./mode-toggle";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -12,24 +12,26 @@ const navItems = [
   { name: "Services", href: "#services" },
   { name: "Portfolio", href: "#portfolio" },
   { name: "Contact", href: "#contact" },
-]
+];
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-white/80 backdrop-blur-md dark:bg-gray-900/80 shadow-sm" : "bg-transparent"
+        scrolled
+          ? "bg-white/80 backdrop-blur-md dark:bg-gray-900/80 shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -39,7 +41,7 @@ export default function Header() {
             className="text-xl font-bold tracking-tight hover:text-primary transition-colors flex items-center"
           >
             <span className="text-primary font-bold">Kripa</span>
-            <span className="font-medium">Poduel</span>
+            <span className="font-medium">Poudel</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -88,5 +90,5 @@ export default function Header() {
         </div>
       )}
     </header>
-  )
+  );
 }
