@@ -1,0 +1,386 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --bg-light: 340 100% 97%;
+    --primary: 12 83.2% 53.3%;
+    --accent-pink: 340 100% 92%;
+    --accent-blue: 214 100% 92%;
+    --accent-peach: 30 100% 92%;
+    --text-light: 222 47% 17%;
+    --card-bg-light: 0 0% 100%;
+    --icon-bg-pink: 350 100% 85% / 0.3;
+    --icon-bg-blue: 195 53% 79% / 0.3;
+    --icon-bg-peach: 30 100% 86% / 0.3;
+
+    /* Base shadcn variables mapped to our colors */
+    --background: var(--bg-light);
+    --foreground: var(--text-light);
+    --card: var(--card-bg-light);
+    --card-foreground: var(--text-light);
+    --popover: var(--card-bg-light);
+    --popover-foreground: var(--text-light);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--accent-blue);
+    --secondary-foreground: var(--text-light);
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: var(--accent-pink);
+    --accent-foreground: var(--text-light);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: var(--primary);
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --bg-dark: 217 33% 17%;
+    --primary-dark: 12 83.2% 53.3%;
+    --card-bg-dark: 215 32% 27%;
+    --text-dark: 210 40% 96%;
+    --accent-purple: 250 87% 85%;
+    --accent-mint: 151 71% 80%;
+    --border-dark: 217 19% 35%;
+
+    /* Base shadcn variables mapped to our dark colors */
+    --background: var(--bg-dark);
+    --foreground: var(--text-dark);
+    --card: var(--card-bg-dark);
+    --card-foreground: var(--text-dark);
+    --popover: var(--card-bg-dark);
+    --popover-foreground: var(--text-dark);
+    --primary: var(--primary-dark);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--accent-purple);
+    --secondary-foreground: var(--text-dark);
+    --muted: 217 33% 25%;
+    --muted-foreground: 215 20.2% 75.1%;
+    --accent: var(--accent-mint);
+    --accent-foreground: var(--text-dark);
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: var(--border-dark);
+    --input: var(--border-dark);
+    --ring: var(--primary-dark);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gradient-bg {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--accent-pink) / 0.8) 0%,
+    hsl(var(--accent-blue) / 0.8) 50%,
+    hsl(var(--accent-blue) / 0.8) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientBG 15s ease infinite;
+}
+
+.section-bg {
+  background-color: hsl(var(--background));
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.skill-bar {
+  height: 8px;
+  border-radius: 4px;
+  background-color: hsl(var(--muted));
+  margin-bottom: 24px;
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+
+.progress-laravel {
+  background-color: hsl(var(--primary));
+}
+
+.progress-php {
+  background-color: #777bb3;
+}
+
+.progress-git {
+  background-color: #f05032;
+}
+
+.progress-tailwind {
+  background-color: #38b2ac;
+}
+
+.progress-html {
+  background-color: #e34f26;
+}
+
+.progress-js {
+  background-color: #f7df1e;
+}
+
+.clip-path-shape {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.to-top {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.service-icon-bg-1 {
+  background-color: hsl(var(--icon-bg-pink));
+}
+
+.service-icon-bg-2 {
+  background-color: hsl(var(--icon-bg-blue));
+}
+
+.service-icon-bg-3 {
+  background-color: hsl(var(--icon-bg-peach));
+}
+
+.project-date {
+  background-color: hsl(var(--primary));
+  color: white;
+  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.contact-icon-bg-1 {
+  background-color: hsl(var(--icon-bg-pink));
+}
+
+.contact-icon-bg-2 {
+  background-color: hsl(var(--icon-bg-blue));
+}
+
+.contact-icon-bg-3 {
+  background-color: hsl(var(--icon-bg-peach));
+}
+
+.blob-shape {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Loading animation styles */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--background));
+  z-index: 9999;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.loader-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  animation: rotate 2s linear infinite;
+}
+
+.loader-circle:nth-child(1) {
+  border-top-color: hsl(var(--primary));
+  animation-delay: 0s;
+}
+
+.loader-circle:nth-child(2) {
+  border-right-color: hsl(var(--accent-pink));
+  animation-delay: 0.5s;
+}
+
+.loader-circle:nth-child(3) {
+  border-bottom-color: hsl(var(--accent-blue));
+  animation-delay: 1s;
+}
+
+.loader-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: hsl(var(--primary));
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-in-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-in-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-in-out forwards;
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.3);
+}
